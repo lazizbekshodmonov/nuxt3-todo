@@ -15,6 +15,10 @@ module.exports = {
           DEFAULT: '#556473',
           light: '#343A40'
         },
+        bluegtrey:{
+          DEFAULT: '#FFF',
+          dark: '#151D20'
+        }
       },
     },
   },

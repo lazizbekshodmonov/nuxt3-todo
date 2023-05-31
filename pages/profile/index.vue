@@ -1,12 +1,7 @@
 <template>
-  <div class="flex justify-end items-center bg-cyan-400 w-screen h-14 px-4">
-    <NavbarProfile />
-    <Icon icon="mdi-light:home" />
-  </div>
+  <div class=""></div>
 </template>
 
-<script setup lang="ts">
-import { Icon } from '@iconify/vue'
-</script>
+<script setup lang="ts"></script>
 
 <style scoped></style>

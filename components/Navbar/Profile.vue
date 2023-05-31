@@ -1,8 +1,10 @@
 <template>
-  <div class="bg-slate-700 rounded-full w-10 h-10 overflow-hidden">
+  <div
+    class="flex items-center justify-center bg-slate-700 rounded-full w-10 h-10 overflow-hidden"
+  >
     <img
-      class="w-[50px] inline-block"
-      src="@/assets/images/default.png"
+      class="img max-w-none w-[145%]"
+      src="@/assets/images/default-avatar-profile-icon-vector-39013212.webp"
       alt=""
     />
   </div>

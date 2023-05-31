@@ -3,9 +3,9 @@
 About:
 
 - TypeScript support
-- Pinia
-<!-- - Storybook -->
+- Pinia <!-- - Storybook -->
 - i18n
+- Nuxt Color Mode
 - Tailwind CSS
 - Headless UI
 - Iconify
