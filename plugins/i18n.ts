@@ -1,9 +1,11 @@
 import { createI18n } from 'vue-i18n'
+
 import uz from '@/i18n/uz.json'
 
 const messages = {
   uz,
 }
+// eslint-disable-next-line no-undef
 export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n({
     legacy: false,
