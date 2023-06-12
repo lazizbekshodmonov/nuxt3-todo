@@ -1,5 +1,6 @@
 <template>
   <button
+    v-bind="$attrs"
     @click="$emit('on-click')"
     :disabled="disabled"
     :class="

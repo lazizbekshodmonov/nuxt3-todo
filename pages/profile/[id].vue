@@ -1,4 +1,14 @@
+<script setup lang="ts">
+definePageMeta({
+  middleware: ['auth'],
+})
+const route = useRoute()
+</script>
+
 <template>
-  <div>Single posts/ <b>ID: {{ $route.params.id }}</b></div>
+  <div>
+    {{}}
+  </div>
 </template>
 
+<style scoped></style>

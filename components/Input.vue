@@ -26,13 +26,14 @@
       </svg>
     </div>
     <input
-      class="px-3 py-3 w-[100%] outline-none bg-white rounded-lg"
+      class="px-3 py-3 w-[100%] outline-none bg-white rounded-lg text-balticsea-light"
       :type="type"
       :class="
         type == 'search' ? 'w-[211px] h-[36px] bg-white ml-10 rounded-none' : ''
       "
       :placeholder="placeholder"
       v-model="modelValue"
+      :value="modelValue"
       autocomplete="on"
       @input="
         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
@@ -45,14 +46,17 @@
 interface Input {
   type: string
   placeholder?: string
-  modelValue?: string
+  value?: string
 }
-withDefaults(defineProps<Input>(), {
+const props = withDefaults(defineProps<Input>(), {
   type: 'text',
   placeholder: 'Placeholder...',
+  value: '',
 })
 defineEmits(['update:modelValue'])
 const modelValue = ref('')
+
+modelValue.value = props.value
 </script>
 
 <style scoped>
@@ -63,6 +67,6 @@ input {
   font-weight: 400;
   font-size: 12px;
   line-height: 16px;
-  color: #adb5bd;
+  /* color: #adb5bd; */
 }
 </style>

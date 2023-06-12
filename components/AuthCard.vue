@@ -6,12 +6,12 @@
 
     <!-- google and facebook registation -->
     <div class="flex justify-center mb-6 gap-3">
-      <FormButton class="icon_btn bg-white hover:bg-slate-100">
-        <img src="../../assets/icons/Google.svg" alt="" />
-      </FormButton>
-      <FormButton :disabled="true" class="icon_btn bg-slate-100">
-        <img src="../../assets/icons/Facebook.svg" alt="" />
-      </FormButton>
+      <Button class="icon_btn bg-white hover:bg-slate-100">
+        <img src="../assets/icons/Google.svg" alt="" />
+      </Button>
+      <Button :disabled="true" class="icon_btn bg-slate-100">
+        <img src="../assets/icons/Facebook.svg" alt="" />
+      </Button>
     </div>
     <!-- google and facebook registation -->
 

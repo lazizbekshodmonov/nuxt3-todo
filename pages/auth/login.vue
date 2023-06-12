@@ -9,44 +9,50 @@
     <!-- page banner image -->
 
     <!-- form card -->
-    <FormCard class="z-50">
+    <AuthCard class="z-50">
       <!-- from input slot -->
       <template #forminput>
         <form class="w-[400px]" @submit.prevent="">
-          <FormInput
-            v-model="auth_data.login"
+          <Input
+            v-model="auth_data.username"
             type="text"
             placeholder="Login"
             class="w-[100%] mb-6"
           />
-          <FormInput
+          <Input
             v-model="auth_data.password"
             type="password"
             class="w-[100%] mb-6"
           />
-          <FormCheckbox v-model="remember"> To remember </FormCheckbox>
-          <FormButton class="w-[100%] my-6"> Login </FormButton>
+          <Checkbox v-model="remember"> To remember </Checkbox>
+          <Button class="w-[100%] my-6" @on-click="login"> Login </Button>
         </form>
       </template>
       <!-- from input slot -->
-    </FormCard>
+    </AuthCard>
     <!-- form card -->
   </div>
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '~/stores/auth_store'
+// import { toast } from 'vue3-toastify'
 definePageMeta({
   layout: 'authentication',
 })
 interface AuthData {
   password: string
-  login: string
+  username: string
 }
-const auth_data = reactive<AuthData>({
-  password: '',
-  login: '',
-})
+const store = useAuthStore()
 const remember = ref(false)
+const auth_data = reactive<AuthData>({
+  username: '',
+  password: '',
+})
+async function login() {
+  await store.login(auth_data)
+}
 </script>
 
 <style scoped></style>

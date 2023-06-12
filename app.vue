@@ -20,6 +20,4 @@ if ('mounted' in route.query) {
     throw new Error('error in mounted')
   })
 }
-
 </script>
-  

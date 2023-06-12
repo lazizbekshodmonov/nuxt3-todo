@@ -1,4 +1,4 @@
-import { Tokens } from "~/models/user"
+import { Tokens } from "~/models"
 export function useAuthentication() {
 
     const cookies = useCookie<Tokens>('tokens')

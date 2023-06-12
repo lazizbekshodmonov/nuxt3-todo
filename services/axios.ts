@@ -18,6 +18,8 @@ export const user_api = axios.create({
 
 user_api.interceptors.response.use(
     (response: any) => {
+        console.log(response);
+        
         return response
     },
     async (error: { response: { status: number }; config: { headers: { [x: string]: string } } }) => {
@@ -35,9 +37,9 @@ user_api.interceptors.response.use(
                 })
                 error.config.headers['Authorization'] = `Bearer ${response.data.access}`
                 return axios(error.config)
-            } catch (err) {
-                console.log(err);
-                router.push('/login')
+            } catch (error) {
+                router.push('/auth/login')
+                throw error
             }
         } else {
             return Promise.reject(error)

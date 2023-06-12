@@ -9,24 +9,24 @@
     <!-- page banner -->
 
     <!-- form card -->
-    <FormCard class="z-50">
+    <AuthCard class="z-50">
       <!-- form input slot -->
       <template #forminput>
         <form class="w-[400px]" @submit.prevent="">
           <!-- form inputs -->
-          <FormInput
+          <Input
             v-model="auth_data.name"
             type="text"
             placeholder="Name"
             class="w-[100%] mb-6"
           />
-          <FormInput
+          <Input
             v-model="auth_data.email"
             type="text"
             placeholder="Email"
             class="w-[100%] mb-6"
           />
-          <FormInput
+          <Input
             v-model="auth_data.password"
             type="password"
             placeholder="Password"
@@ -35,21 +35,25 @@
           <!-- form inputs -->
 
           <!-- form checkbox -->
-          <FormCheckbox v-model="remember"> To remember </FormCheckbox>
+          <Checkbox v-model="remember">To remember</Checkbox>
           <!-- form checkbox -->
 
           <!-- form button -->
-          <FormButton class="w-[100%] my-6"> Register </FormButton>
+          <Button class="w-[100%] my-6" @on-click="registration">
+            Register
+          </Button>
           <!-- form button -->
         </form>
       </template>
       <!-- form input slot -->
-    </FormCard>
+    </AuthCard>
     <!-- form card -->
   </div>
 </template>
 
 <script setup lang="ts">
+import { useAuthStore } from '~/stores/auth_store'
+import { toast } from 'vue3-toastify'
 definePageMeta({
   layout: 'authentication',
 })
@@ -58,12 +62,21 @@ interface AuthData {
   name: string
   email: string
 }
+const store = useAuthStore()
+const remember = ref(false)
 const auth_data = reactive<AuthData>({
   password: '',
   name: '',
   email: '',
 })
-const remember = ref(false)
+async function registration() {
+  await store.registration({
+    password1: auth_data.password,
+    password2: auth_data.password,
+    username: auth_data.name.toLowerCase().replace(' ', ''),
+    email: auth_data.email,
+  })
+}
 </script>
 
 <style scoped></style>
